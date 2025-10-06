@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Growth Partners | Marketing & Analytics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 8rem 2rem;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        /* Main Content Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        .learn-more {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .learn-more:hover {
+            gap: 1rem;
+            transition: gap 0.3s;
+        }
+        /* Features Section */
+        .features {
+            background: var(--bg-light);
+            padding: 5rem 2rem;
+        }
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        .feature-item p {
+            color: var(--text-light);
+        }
+        /* Service Detail Page */
+        .service-detail {
+            background: var(--white);
+        }
+        .service-hero {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .benefits-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        .benefits-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .benefits-list i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-button:hover {
+            background: #c0392b;
+        }
+        /* Solutions Grid */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .solution-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .solution-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .solution-image i {
+            font-size: 4rem;
+            color: var(--white);
+        }
+        .solution-content {
+            padding: 2rem;
+        }
+        .solution-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section a:hover {
+            color: var(--white);
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--accent-color);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none; /* Simple hiding for demo, a hamburger menu would be better for a real site */
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        /* Page display logic */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .bg-light-section {
+            background: var(--bg-light);
+            padding: 5rem 2rem;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo" onclick="showPage('home')">Strategic Growth</a>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+                <li><a href="#solutions" onclick="showPage('solutions')" id="nav-solutions">Solutions</a></li>
+                <li><a href="#contact" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Transform Your Digital Presence</h1>
+                <p>Data-driven marketing strategies and analytics solutions that drive measurable growth for your business</p>
+                <a href="#" onclick="showPage('contact')" class="cta-button">Get Started Today</a>
+            </div>
+        </section>
+        <!-- Services Overview -->
+        <section>
+            <h2 class="section-title">Our Core Services</h2>
+            <p class="section-subtitle">Comprehensive solutions to elevate your digital marketing and analytics capabilities</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Marketing Strategy</h3>
+                    <p>Develop comprehensive marketing strategies that align with your business goals and drive sustainable growth.</p>
+                    <a href="#" onclick="showPage('marketing')" class="learn-more">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Web Analytics</h3>
+                    <p>Transform your data into actionable insights with advanced analytics implementation and reporting.</p>
+                    <a href="#" onclick="showPage('analytics')" class="learn-more">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Consulting & Training</h3>
+                    <p>Empower your team with expert guidance and hands-on training in marketing and analytics best practices.</p>
+                    <a href="#" onclick="showPage('solutions')" class="learn-more">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Features Section -->
+        <div class="features">
+            <div class="features-content">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle">We combine strategic thinking with technical expertise</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Results-Driven</h3>
+                        <p>We focus on delivering measurable outcomes that impact your bottom line</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Strategic Approach</h3>
+                        <p>Every solution is tailored to your unique business challenges and opportunities</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data-Backed</h3>
+                        <p>Our recommendations are grounded in solid data analysis and industry insights</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Partnership Focused</h3>
+                        <p>We work alongside you as a trusted partner in your growth journey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="section-title">Ready to Accelerate Your Growth?</h2>
+            <p class="section-subtitle">Let's discuss how we can help you achieve your business objectives</p>
+            <a href="#" onclick="showPage('contact')" class="cta-button">Schedule a Consultation</a>
+        </section>
+    </div>
+
+    <!-- Solutions Page -->
+    <div id="solutions" class="page">
+        <section class="hero" style="min-height: 50vh; padding: 5rem 2rem;">
+            <div class="hero-content">
+                <h1>Comprehensive Solutions</h1>
+                <p>Integrated approaches to solving your marketing and analytics challenges</p>
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Choose the service that best fits your needs</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Marketing Strategy</h3>
+                    <p>Build a roadmap for sustainable growth with data-driven marketing strategies that align with your business goals.</p>
+                    <a href="#" onclick="showPage('marketing')" class="learn-more">
+                        Explore Service <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Web Analytics</h3>
+                    <p>Turn your data into actionable insights with advanced analytics implementation and comprehensive reporting.</p>
+                    <a href="#" onclick="showPage('analytics')" class="learn-more">
+                        Explore Service <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section style="padding-top: 2rem;">
+            <h2 class="section-title">Our Solution Framework</h2>
+            <p class="section-subtitle">End-to-end services designed to maximize your digital impact</p>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Discovery & Audit</h3>
+                        <p>We start by thoroughly analyzing your current marketing and analytics setup to identify opportunities and gaps. Our comprehensive audit covers your digital presence, data infrastructure, and competitive landscape.</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Strategy Development</h3>
+                        <p>Based on insights from discovery, we craft a customized strategy that aligns with your business goals. This includes channel selection, targeting approach, measurement framework, and implementation roadmap.</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Implementation</h3>
+                        <p>Our team handles the technical implementation of analytics tools, tracking setup, dashboard creation, and campaign execution. We ensure everything is properly configured for optimal performance.</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Optimization</h3>
+                        <p>We continuously monitor performance, conduct A/B tests, and refine strategies based on data. Regular reporting and analysis ensure you're always moving toward your goals with maximum efficiency.</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Training & Support</h3>
+                        <p>We empower your team with knowledge transfer sessions, documentation, and ongoing support. Our goal is to build internal capabilities while providing expert guidance when needed.</p>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Continuous Improvement</h3>
+                        <p>Marketing and analytics evolve rapidly. We stay ahead of trends, introduce new technologies, and continuously enhance your capabilities to maintain competitive advantage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="bg-light-section">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 class="section-title">Custom Solutions for Your Industry</h2>
+                <p class="section-subtitle">We have experience across multiple sectors including e-commerce, SaaS, B2B services, healthcare, and education. Every solution is tailored to your specific industry dynamics and customer behavior.</p>
+                <a href="#" onclick="showPage('contact')" class="cta-button">Discuss Your Needs</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marketing Strategy Page -->
+    <div id="marketing" class="page">
+        <div class="service-hero">
+            <div class="hero-content">
+                <h1>Marketing Strategy Services</h1>
+                <p>Build a roadmap for sustainable growth with data-driven marketing strategies</p>
+            </div>
+        </div>
+        <section>
+            <h2 class="section-title">Strategic Marketing Excellence</h2>
+            <p class="section-subtitle">Transform your marketing from tactical to strategic with our comprehensive approach</p>
+            <div style="max-width: 800px; margin: 3rem auto;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem;">
+                    In today's competitive digital landscape, success requires more than just running campaigns. You need a cohesive strategy that aligns your marketing efforts with business objectives, resonates with your target audience, and delivers measurable ROI.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem;">
+                    Our marketing strategy services help you cut through the noise and focus on what truly matters. We combine market research, competitive analysis, and customer insights to develop strategies that drive real business growth.
+                </p>
+            </div>
+            <h3 style="font-size: 2rem; margin: 4rem 0 2rem; text-align: center; color: var(--primary-color);">What We Deliver</h3>
+            <ul class="benefits-list">
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Market Analysis & Positioning:</strong> Deep dive into your market, competitors, and unique value proposition to identify opportunities
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Customer Journey Mapping:</strong> Understand every touchpoint and optimize for conversion at each stage
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Multi-Channel Strategy:</strong> Integrated approach across digital channels including SEO, content, paid media, email, and social
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Content Strategy:</strong> Strategic content planning that attracts, engages, and converts your ideal customers
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Budget Allocation:</strong> Optimize marketing spend across channels for maximum impact and ROI
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Performance Framework:</strong> Clear KPIs and measurement plans to track progress and demonstrate value
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <div class="features">
+            <div class="features-content">
+                <h2 class="section-title">Our Process</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                        <h3>Discovery</h3>
+                        <p>We learn about your business, goals, customers, and challenges</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-microscope"></i></div>
+                        <h3>Research</h3>
+                        <p>Comprehensive market and competitive analysis</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-pencil-ruler"></i></div>
+                        <h3>Strategy</h3>
+                        <p>Develop comprehensive strategic roadmap</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Execution</h3>
+                        <p>Support implementation and ongoing optimization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="cta-section">
+            <h2 class="section-title">Ready to Build Your Strategy?</h2>
+            <p class="section-subtitle">Let's create a marketing strategy that delivers results</p>
+            <a href="#" onclick="showPage('contact')" class="cta-button">Get Started</a>
+        </section>
+    </div>
+
+    <!-- Web Analytics Page -->
+    <div id="analytics" class="page">
+        <div class="service-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="hero-content">
+                <h1>Web Analytics Services</h1>
+                <p>Turn your data into actionable insights that drive business decisions</p>
+            </div>
+        </div>
+        <section>
+            <h2 class="section-title">Advanced Analytics Solutions</h2>
+            <p class="section-subtitle">Measure what matters and make data-driven decisions with confidence</p>
+            <div style="max-width: 800px; margin: 3rem auto;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem;">
+                    Data is only valuable when it leads to action. Our web analytics services go beyond basic reporting to provide deep insights into user behavior, conversion patterns, and opportunities for optimization.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem;">
+                    Whether you're just getting started with analytics or looking to level up your existing implementation, we provide the expertise and tools to transform your data into a strategic asset.
+                </p>
+            </div>
+            <h3 style="font-size: 2rem; margin: 4rem 0 2rem; text-align: center; color: var(--primary-color);">Our Analytics Services</h3>
+            <ul class="benefits-list">
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Analytics Implementation:</strong> Proper setup of Google Analytics 4, Google Tag Manager, and other analytics platforms
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Event Tracking:</strong> Custom event tracking to capture meaningful user interactions and conversions
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Dashboard Creation:</strong> Custom dashboards and reports in tools like Looker Studio for at-a-glance insights
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Conversion Optimization (CRO):</strong> Data-driven analysis of user funnels to identify and remove conversion barriers
+                    </div>
+                </li>
+                 <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Data Analysis & Insights:</strong> Deep-dive analysis to answer your most pressing business questions and uncover growth opportunities
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>A/B Testing & Experimentation:</strong> Design, implement, and analyze experiments to validate hypotheses and improve performance
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Training & Support:</strong> Empowering your team to understand and utilize your analytics data effectively
+                    </div>
+                </li>
+            </ul>
+        </section>
+         <div class="features">
+            <div class="features-content">
+                <h2 class="section-title">Our Tech Stack</h2>
+                <p class="section-subtitle">We work with industry-leading tools</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fab fa-google"></i></div>
+                        <h3>Google Analytics 4</h3>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-tags"></i></div>
+                        <h3>Google Tag Manager</h3>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Looker Studio</h3>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-flask"></i></div>
+                        <h3>Google Optimize</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="cta-section">
+            <h2 class="section-title">Unlock Your Data's Potential</h2>
+            <p class="section-subtitle">Let's build an analytics framework that drives growth</p>
+            <a href="#" onclick="showPage('contact')" class="cta-button">Request an Audit</a>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="hero" style="min-height: 50vh; padding: 5rem 2rem; background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);">
+            <div class="hero-content">
+                <h1>Get In Touch</h1>
+                <p>We're here to answer your questions and help you get started</p>
+            </div>
+        </section>
+        <section>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Fill out the form below or reach out to us directly</p>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message!');">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                 <div class="form-group">
+                    <label for="service">Service of Interest</label>
+                    <select id="service" name="service">
+                        <option value="general">General Inquiry</option>
+                        <option value="strategy">Marketing Strategy</option>
+                        <option value="analytics">Web Analytics</option>
+                        <option value="consulting">Consulting & Training</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Strategic Growth Partners</h3>
+                <p style="color: rgba(255,255,255,0.6);">Data-driven strategies for measurable business growth.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('solutions')">Solutions</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('marketing')">Marketing Strategy</a></li>
+                    <li><a href="#" onclick="showPage('analytics')">Web Analytics</a></li>
+                    <li><a href="#" onclick="showPage('solutions')">Consulting & Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                 <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>123 Growth Ave, Suite 100<br>Innovation City, 12345</p>
+                 <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;"><i class="fas fa-phone" style="margin-right: 10px;"></i>(555) 123-4567</p>
+                 <p style="color: rgba(255,255,255,0.8);"><i class="fas fa-envelope" style="margin-right: 10px;"></i>contact@strategicgrowth.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Strategic Growth Partners. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show the selected page
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+
+            // Update active state in navigation
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // There isn't a nav link for every page, so we handle them separately
+            const activeNavLink = document.getElementById('nav-' + pageId);
+            if (activeNavLink) {
+                 activeNavLink.classList.add('active');
+            } else if (pageId === 'marketing' || pageId === 'analytics') {
+                // If on a service page, highlight the 'Solutions' nav item
+                const solutionsLink = document.getElementById('nav-solutions');
+                if(solutionsLink) solutionsLink.classList.add('active');
+            }
+
+
+            // Scroll to the top of the page
+            window.scrollTo(0, 0);
+        }
+
+        // Handle initial page load based on URL hash if present
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showPage(hash);
+            } else {
+                showPage('home');
+            }
+        });
+    </script>
+</body>
+</html>
