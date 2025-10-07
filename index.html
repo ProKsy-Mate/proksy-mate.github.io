@@ -6,6 +6,74 @@
     <title>Strategic Growth Partners | Marketing & Analytics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    //Adobe Target Pre-Hiding Snippet begin
+    <script>
+
+   ;(function(win, doc, style, timeout) {
+
+   var STYLE_ID = 'at-body-style';
+
+   function getParent() {
+
+      return doc.getElementsByTagName('head')[0];
+
+   }
+
+   function addStyle(parent, id, def) {
+
+      if (!parent) {
+
+      return;
+
+      }
+
+      var style = doc.createElement('style');
+
+      style.id = id;
+
+      style.innerHTML = def;
+
+      parent.appendChild(style);
+
+   }
+
+   function removeStyle(parent, id) {
+
+      if (!parent) {
+
+      return;
+
+      }
+
+      var style = doc.getElementById(id);
+
+      if (!style) {
+
+      return;
+
+      }
+
+      parent.removeChild(style);
+
+   }
+
+   addStyle(getParent(), STYLE_ID, style);
+
+   setTimeout(function() {
+
+      removeStyle(getParent(), STYLE_ID);
+
+   }, timeout);
+
+   }(window, document, "body {opacity: 0 !important}", 3000));
+
+   </script>
+   //Adobe Target Pre-Hiding Snippet End
+    
+//Adobe Launch Script
+    <script src="https://assets.adobedtm.com/e72b4113c11a/6c5e31b03ad5/launch-1ef022792496.min.js" async></script>
+    
 </head>
 <body>
     <!-- Header -->
